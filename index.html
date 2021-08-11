@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      html{
+        position: fixed;
+      }
+      body{
+        background-color: white;
+        margin:0;
+        padding:0px;
+        width:300px;
+        height:300px;
+      }
+      div{
+        width:100%;
+        height: 100%;
+      }
+      #borderb{
+        width:600px;
+        height: 60px;
+        position: fixed;
+        left:27.5%;
+        top:48%;
+        border: solid black 3px;
+        border-radius: 20px;
+        
+      }
+      #plusx{
+        position:fixed;
+        top:65%;
+        display: none;
+        width: 120px;
+        height: 120px;
+      }
+      #plusy{
+        position:fixed;
+        top:65%;
+        display: none;
+        width: 120px;
+        height: 120px;
+      }
+      #borderc{
+        width:600px;
+        height: 60px;
+        position: fixed;
+        left:28%;
+        top:48.5%;
+        border: solid black 0px;
+        border-radius: 20px;
+        background-color: #20e843;
+        
+      }
+      #borderd{
+        position: fixed;
+        left:50%;
+        top:60%;
+        font-size:40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+    <label>Max Level:</label><input placeholder="Your num in int form" type="number" id="inputa" style="width:430px; height:40px; text-size:35px;">
+    <button id="submita" onclick="Gotnum()" style="width:170px; height:40px;">Submit</button>
+    <label style="position: fixed; top:48%; left:15%; font-size:50px;" id="fun">🔇</label><span id="borderb"></span>
+    <span id="borderc"></span><h3 id="borderd"></h3>
+    <button id="plusx" onclick="plus()" style="background-color:#01ea34; left:20%; font-size:70px;">+</button><h3>        </h3><button id="plusy" onclick="minus()" style="background-color:#ff0000; left:80%; font-size:70px;">-</button>
+    <button style="width:120px; height:80px; background-color:#9a0fd0; color:white; position: fixed; top:80%; left:80%;" href="https://raw.githubusercontent.com/Yashasmonkeycoder/offf.github.io/main/index.html">code--></button>
+    </div>
+  </body>
+</html>
+<script>
+  alert("enter the max number that you want in the input box to start the number bar")
+  var widht = 0;
+  var cont = 0;
+  var inptu = document.getElementById("inputa").value;
+  var total = 0;
+  function Gotnum(){
+    document.getElementById("borderc").style.width=0+"px";
+    total = 0;
+    cont = 0;
+    inptu = Number(document.getElementById("inputa").value);
+    var testa = Math.floor(inptu);
+    var testb = inptu-testa
+    if(testb!=0){
+      alert("This assigning bar is only made for int numbers, so please input int numbers (ex:- natural numbers)")
+      inptu-inptu;
+    }
+    widht = 600/inptu
+    document.getElementById("borderd").innerHTML=cont+"/"+inptu;
+    document.getElementById("plusx").style.display="block"
+    document.getElementById("plusy").style.display="block"
+    document.getElementById("submita").innerHTML="replace"
+    document.getElementById("fun").innerHTML="🔇"
+  }
+  function plus(){
+    if(cont!=inptu){
+    total+=widht;
+    cont+=1;}
+    document.getElementById("borderd").innerHTML=cont+"/"+inptu;
+    document.getElementById("borderc").style.width=total+"px";
+    if(cont>0){
+      document.getElementById("fun").innerHTML="🔊"
+    }
+    else{
+      document.getElementById("fun").innerHTML="🔇"
+    }
+  }
+  function minus(){
+    if(cont!=0){
+    total-=widht;
+    cont-=1;}
+    if(cont>0){
+      document.getElementById("fun").innerHTML="🔊"
+    }
+    else{
+      document.getElementById("fun").innerHTML="🔇"
+    }
+    document.getElementById("borderd").innerHTML=cont+"/"+inptu;
+    document.getElementById("borderc").style.width=total+"px";
+    if(cont == 0){
+      document.getElementById("borderc").style.width=0+"px";
+    }
+  }
+  
+</script>
